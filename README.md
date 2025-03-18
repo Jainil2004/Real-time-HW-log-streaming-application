@@ -1,4 +1,4 @@
-# spark_kafka_ES
+# Real time HW log streaming application
  previously known as 'spark_kafka_ES'. it is a integration setup for my flagship big data project. the setup contains everything required to get kafka, spark and ES working together with more additions on the way. 
 
 how to use?

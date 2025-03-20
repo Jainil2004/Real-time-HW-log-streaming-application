@@ -8,4 +8,5 @@ how to use?
 4. start the 'sparkKafkaESHwinfoTwoWayStreamingApplication.ipynb'. this will start spark and would stream the data to two destinations.
 5. destionation 1: Elasticsearch under the index 'hwinfo_test'
 6. destination 2: Kafka topic named hwinfo_logs_RT that would be used to power the real time dashboard.
+7. with the above setup complete test the flask application by running it and ensure the host can ping flask inside the container on port 5000
 

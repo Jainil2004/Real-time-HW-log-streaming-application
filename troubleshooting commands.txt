@@ -1,0 +1,7 @@
+a few useful commands for troubleshooting
+docker network -ls
+docker network inspect <network name>
+
+
+this is to make flask is available outside the network
+docker run -p 9999:9999 -p 8888:8888 --network=<your_network> -it <your_jupyter_image>

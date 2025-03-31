@@ -1,0 +1,258 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+
+\geometry{left=1.055118in, right=0.91in, top=1in, bottom=1in}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    \Huge
+    \textbf{Title}
+    \vfill
+    \LARGE
+    \textbf{\textit{A\\
+    Project Report}}\\
+    \textit{submitted in partial fulfillment of the\\
+    requirements for the award of the degree of}\\
+    \vfill
+    \textbf{BACHELOR OF TECHNOLOGY}\\
+    in\\
+    \textbf{COMPUTER SCIENCE \& ENGINEERING}\\
+    \vfill
+    \textbf{by}\\
+    \large
+ \begin{tabular}{c c}
+        \textbf{Name} & \textbf{Roll No.} \\ 
+        XXXXX  & 1234567890 \\
+        YYYY   & 1234567890 \\
+        ZZZZ   & 1234567890 \\
+        ABCD   & 1234567890 \\
+\end{tabular}
+    
+    \vfill
+    \textbf{\textit{Under the guidance of}}\\
+    TTTTTTTT\\
+    \vfill
+    \includegraphics[width=0.4\textwidth]{UPES_logo.png}\\
+    \vfill
+    \textbf{School of Computer Science, UPES}\\
+     Bidholi, Via Prem Nagar, Dehradun, Uttarakhand\\
+    Month -- 2025
+\end{titlepage}
+
+
+\begin{center}
+    \Large \textbf{CANDIDATE’S DECLARATION}
+\end{center}
+
+\vspace{1cm}
+
+I/We hereby certify that the project work entitled \textbf{``Title of Project''} in partial fulfillment of the requirements for the award of the Degree of \textbf{BACHELOR OF TECHNOLOGY} in \textbf{COMPUTER SCIENCE AND ENGINEERING} with specialization in \textbf{SPECIALIZATION}, submitted to the Data Science Cluster, School of Computer Science, UPES, Dehradun, is an authentic record of my/our work carried out during a period from \textbf{Month, Year} to \textbf{Month, Year} under the supervision of \textbf{Guide Name(s), Designation and Affiliation}.
+
+\vspace{1cm}
+
+The matter presented in this project has not been submitted by me/us for the award of any other degree of this or any other University.
+
+\vspace{1.5cm}
+
+\begin{flushright}
+    \textbf{(Name of Student(s))} \\
+    Roll No. -----------------
+\end{flushright}
+
+\vspace{1.5cm}
+
+This is to certify that the above statement made by the candidate is correct to the best of my knowledge.
+
+\vspace{3cm}
+
+\noindent
+Date: \underline{\hspace{3cm}} 2025
+\hfill
+\begin{minipage}{5cm}
+    \centering
+    \textbf{\underline{Name of Guide}}\\
+    Project Guide
+\end{minipage}
+
+\vspace{7cm}
+\hrule
+
+\begin{center}
+    \Large \textbf{Acknowledgement}
+\end{center}
+
+
+We wish to express our deep gratitude to our guide Name, for all advice, encouragement and constant support he/she has given us throughout our project work. This work would not have been possible without his support and valuable suggestions.
+We sincerely thanks to our respected Name of HoD, Head Department of \underline{\hspace{3cm}}, for his great support in doing our project in \underline{\hspace{3cm}}.
+We are also grateful to Dean SoCS UPES for giving us the necessary facilities to carry out our project work successfully. We also thanks to our Course Coordinator, (NAME) and our Activity Coordinator (NAME) for providing timely support and information during the completion of this project. 
+We would like to thank all our friends for their help and constructive criticism during our project work. Finally, we have no words to express our sincere gratitude to our parents who have shown us this world and for every support they have given us.
+\vspace{3cm}
+\begin{flushright}
+    \textbf{(Name of Student)} \\\vspace{1cm}
+    Roll No. -----------------\\ \vspace{2cm}
+     \textbf{(Name of Student)} \\\vspace{1cm}
+    Roll No. -----------------
+\end{flushright}
+
+\title{System Requirements Specification (SRS) for Real-Time Log Analysis System}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+\subsection{Purpose}
+The Real-Time Log Analysis System monitors and analyzes computer hardware logs in real-time, focusing on parameters such as temperature, voltage, and clock speed. It features a customizable log schema and fault tolerance mechanisms to ensure continuous operation. The system serves both commercial and personal users, enabling administrators to monitor large deployments and enthusiasts to optimize performance.
+
+The system provides insights into hardware health and includes an alert mechanism for abnormal activities such as power failures, thermal throttling, and excessive core frequencies.
+
+\subsection{Scope}
+The system collects logs from HWInfo, processes them using Apache Kafka and Apache Spark, and stores them in Elasticsearch. Features include:
+\begin{itemize}
+    \item Automated monitoring of hardware logs.
+    \item Anomaly detection using statistical and machine learning techniques.
+    \item Dashboard visualization for real-time insights.
+    \item Alert generation for critical events (e.g., overheating, abnormal voltage changes).
+\end{itemize}
+
+\subsection{Definitions, Acronyms, and Abbreviations}
+\begin{itemize}
+    \item Kafka: Distributed event streaming platform for log ingestion.
+    \item Spark: Real-time data processing framework.
+    \item Elasticsearch: Search and analytics engine for storing logs.
+    \item HWInfo: Hardware monitoring tool generating log files.
+    \item Anomaly Detection: Identifying unusual patterns in hardware behavior.
+\end{itemize}
+
+\subsection{References}
+Research papers on real-time log analysis, anomaly detection, and big data tools.
+
+\subsection{Overview}
+This document outlines functional and non-functional requirements, external interfaces, and system design constraints.
+
+\section{Overall Description}
+
+\subsection{Product Perspective}
+The system is a standalone application integrating big data technologies for efficient log processing, anomaly detection, and fault tolerance. It leverages Apache Kafka, Spark Streaming, and Elasticsearch to ensure rapid ingestion, processing, and storage.
+
+\subsection{Product Functions}
+\begin{itemize}
+    \item Log Ingestion: HWInfo logs streamed into Kafka.
+    \item Real-Time Processing: Spark detects anomalies.
+    \item Data Storage and Querying: Logs stored in Elasticsearch.
+    \item Dashboard and Alerts: Visualization and notifications.
+\end{itemize}
+
+\subsection{User Characteristics}
+\begin{itemize}
+    \item System Administrators: Require hardware health insights.
+    \item Developers and Researchers: Need log analysis for diagnostics.
+    \item Enthusiasts: Seek real-time monitoring.
+\end{itemize}
+
+\subsection{Constraints}
+\begin{itemize}
+    \item Must support high-velocity log ingestion.
+    \item Must process logs in under 500ms.
+    \item Must store logs efficiently.
+\end{itemize}
+
+\section{System Hardware Requirements}
+The system hardware requirements for the software are mentioned below. The system should perform at optimal performance when regards to the environments it would be deployed in which is Big data clusters. the system tools have been tested on windows 10, 11 and Ubuntu 22.04 LTS. For windows its recommend to use WSL2 but WSL should not tamper with the operational capabilities of the software. As per other requirements its recommended to use a Modern x86 architecture-based CPU such as Intel 6th gen skylake based processors or AMD zen based processors. The Ram requirements for the software is at minimum 8 gigabytes to ensure ample headroom for other tasks and for optimal working of Spark worker nodes.
+
+\subsection{Recommended System Requirements}
+\begin{itemize}
+    \item CPU: x86\_64, Intel/AMD 4+ cores.
+    \item RAM: 8GB+
+    \item OS: Linux/Windows (WSL2)
+    \item Software: Docker, Kafka, Spark, Elasticsearch.
+\end{itemize}
+
+\subsection{Minimum System Requirements}
+\begin{itemize}
+    \item CPU: x86\_64, Intel/AMD 2+ cores.
+    \item RAM: 8GB
+    \item OS: Linux/Windows (WSL2)
+    \item Software: Docker, Kafka, Spark, Elasticsearch.
+\end{itemize}
+
+\section{Functional Requirements}
+
+\subsection{Log Ingestion}
+\begin{itemize}
+    \item HWInfo writes logs to cloud storage.
+    \item Kafka ingests logs for real-time streaming.
+    \item Fault-tolerant log streaming with multiple partitions.
+\end{itemize}
+
+\subsection{Data Processing and Anomaly Detection}
+\begin{itemize}
+    \item Spark processes logs in real-time.
+    \item Maintains data integrity and applies transformations.
+    \item Flags critical anomalies and generates alerts.
+\end{itemize}
+
+\subsection{Data Storage and Retrieval}
+\begin{itemize}
+    \item Logs stored in Elasticsearch.
+    \item High-speed querying, filtering, and updates.
+\end{itemize}
+
+\subsection{Dashboard and Notifications}
+\begin{itemize}
+    \item Real-time visualization of system status.
+    \item Alerts for anomalies such as abnormal frequencies.
+\end{itemize}
+
+\section{External Interface Requirements}
+
+\subsection{User Interfaces}
+\begin{itemize}
+    \item Web-based dashboard for monitoring.
+    \item Interactive charts for log visualization.
+\end{itemize}
+
+\subsection{Hardware Interfaces}
+\begin{itemize}
+    \item HWInfo internal sensors and native hardware sensors.
+\end{itemize}
+
+\subsection{Software Interfaces}
+\begin{itemize}
+    \item Kafka for log streaming.
+    \item Spark for processing and anomaly detection.
+    \item Elasticsearch for storage and retrieval.
+\end{itemize}
+
+\section{Non-Functional Requirements}
+\begin{itemize}
+    \item \textbf{Performance}: Real-time or near real-time log processing.
+    \item \textbf{Scalability}: Must handle increasing log volumes.
+    \item \textbf{Reliability}: Recover from failures seamlessly.
+    \item \textbf{Security}: Restrict access to sensitive logs.
+\end{itemize}
+
+\section{System Architecture}
+The system uses HWInfo to generate logs in CSV format, which are ingested by Kafka for fault-tolerant streaming. Kafka ensures real-time data delivery to Spark, which processes and transforms the logs. Anomalies are detected using predefined rules, and logs are stored in Elasticsearch for querying and visualization. A dashboard provides real-time monitoring and alerts.
+
+\subsection{Architectural Diagram}
+HWInfo $\rightarrow$ Kafka $\rightarrow$ Spark $\rightarrow$ Elasticsearch $\rightarrow$ Dashboard/Alerts
+
+\subsection{Data Flow}
+\begin{enumerate}
+    \item Logs streamed into Kafka.
+    \item Spark processes logs and detects anomalies.
+    \item Processed logs stored in Elasticsearch.
+    \item Dashboard retrieves logs and visualizes data.
+    \item Alerts triggered for anomalies.
+\end{enumerate}
+
+\end{document}

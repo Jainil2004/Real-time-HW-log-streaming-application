@@ -1,0 +1,23 @@
+current schema: 
+
+hwinfo_schema = StructType([
+    StructField("Date", StringType(), True),
+    StructField("Time", StringType(), True),
+    StructField("Core_Clocks_avg_MHz", IntegerType(), True),
+    StructField("Ring_Clock_MHz", DoubleType(), True),
+    StructField("Core_Usage_avg_percent", DoubleType(), True),
+    StructField("Core_Temperatures_avg_C", DoubleType(), True),
+    StructField("CPU_Package_C", IntegerType(), True),
+    StructField("CPU_Package_Power_W", DoubleType(), True),
+])
+
+additional features to be added:
+core VID
+core distance to Tjmax
+pl1 static
+pl1 dynamic 
+pl2 static
+pl2 dynamic
+
+final schema: 
+Date, Time, Core VID, core clocks avg, ring clocks avg, core usage avg, core temperatures avg, core distance to tjmax, cpu package temp, cpu package power, pl1 static, pl1 dynamic, pl2 static, pl2 dynamic

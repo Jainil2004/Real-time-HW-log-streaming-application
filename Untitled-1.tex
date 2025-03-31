@@ -1,0 +1,142 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+
+\geometry{left=1.055118in, right=0.91in, top=1in, bottom=1in}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    \Huge
+    \textbf{Title}
+    \vfill
+    \LARGE
+    \textbf{\textit{A\\
+    Project Report}}\\
+    \textit{submitted in partial fulfillment of the\\
+    requirements for the award of the degree of}\\
+    \vfill
+    \textbf{BACHELOR OF TECHNOLOGY}\\
+    in\\
+    \textbf{COMPUTER SCIENCE \& ENGINEERING}\\
+    \vfill
+    \textbf{by}\\
+    \large
+ \begin{tabular}{c c}
+        \textbf{Name} & \textbf{Roll No.} \\ 
+        XXXXX  & 1234567890 \\
+        YYYY   & 1234567890 \\
+        ZZZZ   & 1234567890 \\
+        ABCD   & 1234567890 \\
+\end{tabular}
+    
+    \vfill
+    \textbf{\textit{Under the guidance of}}\\
+    TTTTTTTT\\
+    \vfill
+    \includegraphics[width=0.4\textwidth]{UPES_logo.png}\\
+    \vfill
+    \textbf{School of Computer Science, UPES}\\
+     Bidholi, Via Prem Nagar, Dehradun, Uttarakhand\\
+    Month -- 2025
+\end{titlepage}
+
+\tableofcontents
+
+\section{1. Introduction}
+
+\subsection{1.1 Purpose}
+The Real-Time Log Analysis System monitors and analyzes computer hardware logs in real-time, focusing on parameters such as temperature, voltage, and clock speed. It features a customizable log schema and fault tolerance mechanisms to ensure continuous operation. The system serves both commercial and personal users, enabling administrators to monitor large deployments and enthusiasts to optimize performance.
+
+The system provides insights into hardware health and includes an alert mechanism for abnormal activities such as power failures, thermal throttling, and excessive core frequencies.
+
+\subsection{1.2 Scope}
+The system collects logs from HWInfo, processes them using Apache Kafka and Apache Spark, and stores them in Elasticsearch. Features include:
+\begin{itemize}
+    \item Automated monitoring of hardware logs.
+    \item Anomaly detection using statistical and machine learning techniques.
+    \item Dashboard visualization for real-time insights.
+    \item Alert generation for critical events (e.g., overheating, abnormal voltage changes).
+\end{itemize}
+
+\subsection{1.3 Definitions, Acronyms, and Abbreviations}
+\begin{itemize}
+    \item Kafka: Distributed event streaming platform for log ingestion.
+    \item Spark: Real-time data processing framework.
+    \item Elasticsearch: Search and analytics engine for storing logs.
+    \item HWInfo: Hardware monitoring tool generating log files.
+    \item Anomaly Detection: Identifying unusual patterns in hardware behavior.
+\end{itemize}
+
+\subsection{1.4 References}
+Research papers on real-time log analysis, anomaly detection, and big data tools.
+
+\subsection{1.5 Overview}
+This document outlines functional and non-functional requirements, external interfaces, and system design constraints.
+
+\section{2. Overall Description}
+
+\subsection{2.1 Product Perspective}
+The system is a standalone application integrating big data technologies for efficient log processing, anomaly detection, and fault tolerance. It leverages Apache Kafka, Spark Streaming, and Elasticsearch to ensure rapid ingestion, processing, and storage.
+
+\subsection{2.2 Product Functions}
+\begin{itemize}
+    \item Log Ingestion: HWInfo logs streamed into Kafka.
+    \item Real-Time Processing: Spark detects anomalies.
+    \item Data Storage and Querying: Logs stored in Elasticsearch.
+    \item Dashboard and Alerts: Visualization and notifications.
+\end{itemize}
+
+\subsection{2.3 User Characteristics}
+\begin{itemize}
+    \item System Administrators: Require hardware health insights.
+    \item Developers and Researchers: Need log analysis for diagnostics.
+    \item Enthusiasts: Seek real-time monitoring.
+\end{itemize}
+
+\subsection{2.4 Constraints}
+\begin{itemize}
+    \item Must support high-velocity log ingestion.
+    \item Must process logs in under 500ms.
+    \item Must store logs efficiently.
+\end{itemize}
+
+\section{3. System Hardware Requirements}
+\subsection{3.1 Recommended System Requirements}
+\begin{itemize}
+    \item CPU: x86\_64, Intel/AMD 4+ cores.
+    \item RAM: 8GB+
+    \item OS: Linux/Windows (WSL2)
+    \item Software: Docker, Kafka, Spark, Elasticsearch.
+\end{itemize}
+
+\subsection{3.2 Minimum System Requirements}
+\begin{itemize}
+    \item CPU: x86\_64, Intel/AMD 2+ cores.
+    \item RAM: 8GB
+    \item OS: Linux/Windows (WSL2)
+    \item Software: Docker, Kafka, Spark, Elasticsearch.
+\end{itemize}
+
+\section{4. Functional Requirements}
+\subsection{4.1 Log Ingestion}
+\subsection{4.2 Data Processing and Anomaly Detection}
+\subsection{4.3 Data Storage and Retrieval}
+\subsection{4.4 Dashboard and Notifications}
+
+\section{5. External Interface Requirements}
+\subsection{5.1 User Interfaces}
+\subsection{5.2 Hardware Interfaces}
+\subsection{5.3 Software Interfaces}
+
+\section{6. Non-Functional Requirements}
+
+\section{7. System Architecture}
+\subsection{7.1 Architectural Diagram}
+\subsection{7.2 Data Flow}
+
+\end{document}

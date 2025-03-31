@@ -1,0 +1,4 @@
+real-time monitoring
+search  - time period based search
+	- alert based searching
+	- error based searching

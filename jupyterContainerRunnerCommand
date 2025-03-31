@@ -1,0 +1,5 @@
+ensure you run this command in the sparky directory only
+
+docker run --rm -it -p 5000:5000 -p 8888:8888 --network=sparky_default jupyterstabler1
+
+Set-ExecutionPolicy Unrestricted -Scope Process

@@ -1,0 +1,137 @@
+* {
+    border: 1px solid black;
+}
+
+body {
+    background-color: black;
+}
+
+.navPanel {
+    float: left;
+    width: 20%;
+    height: 92%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: beige;
+    border-radius: 20px;
+}
+
+.pageDesPanel {
+    float: right;
+    width: 73%;
+    height: 92%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background-color: beige;
+    border-radius: 20px;
+}
+
+/* .header {
+    border-radius: 20px;
+    width: auto;
+    height: 7.5%;
+    background-color: green;
+} */
+
+.header {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 20px;
+    width: auto;
+    height: 7.5%;
+    background-color: green;
+}
+
+.header header {
+    font-size: 4vh;
+    text-align: center;
+    margin: 0;
+}
+
+
+/* .sysPanel {
+    border-radius: 20px;
+    background-color: pink;
+    width: auto;
+    height:fit-content;
+    margin: 2%;
+}
+
+.sysPanel div {
+    margin: 1%;
+    width: 10%;
+    height: 10%;
+    background-color: blue;
+}
+
+.sysPanel {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    height: 50%;
+}
+  
+.sysPanel > div {
+    background-color: #f0f0f0; 
+    width: auto;
+    height: 50%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 5%;
+    border-radius: 20px;
+} */
+
+.sysPanel {
+    display: grid;
+    grid-template-columns: repeat(2, 48%); /* Two columns, leaving space for margins */
+    gap: 4%; /* Space between items */
+    justify-content: center; /* Center the grid in the parent container */
+    align-items: center;
+    border-radius: 20px;
+    background-color: pink;
+    width: 90%; /* Make it responsive */
+    margin: 2% auto; /* Center the panel itself */
+    padding: 2%;
+}
+
+.sysPanel > div {
+    background-color: #f0f0f0;
+    width: 100%; /* Let grid control the width */
+    height: 7vh; /* Use viewport height for responsive sizing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5%;
+    border-radius: 20px;
+    font-size: 1.5vw; /* Use viewport width for text scaling */
+    font-weight: bold;
+}
+
+nav {
+    margin: 5%;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    /* justify-content: center;  Center buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    height: 88%; /* Ensure it takes the full height of the parent */
+    border-radius: 20px;
+}
+
+nav a {
+    display: flex;
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
+    text-align: center; /* Ensures text is fully centered */
+    width: 90%;
+    height: 10%;
+    border-radius: 20px;
+    margin-top: 5%;
+    text-decoration: none; /* Removes underline */
+    font-size: 1.2vw; /* Responsive font size */
+    font-weight: bold;
+    color: black; /* Set text color */
+    background-color: lightgray; /* Background color for better visibility */
+}

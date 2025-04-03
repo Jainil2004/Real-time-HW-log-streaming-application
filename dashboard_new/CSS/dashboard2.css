@@ -9,13 +9,38 @@ body {
 }
 
 /* Navigation Panel */
-.navPanel {
+/* .navPanel {
     width: 20%;
     height: 84vh;
-    background-color: rgba(20, 20, 20, 0.3); /* Warm black with translucency */
+    background-color: rgba(20, 20, 20, 0.3);
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     padding: 2%;
+} */
+
+/* Navigation Panel - Fixed position */
+.navPanel {
+    width: 20%;
+    height: 89vh; /* Full height */
+    position: fixed; /* Keeps it in place */
+    top: 2%;
+    left: 1%;
+    background-color: rgba(20, 20, 20, 0.3);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    overflow-y: auto; /* Allows scrolling if needed */
+}
+
+/* Page Panel - Allows full scrolling */
+.pageDesPanel {
+    width: 75%;
+    margin-left: 25%; /* Ensures it doesn’t go under the nav panel */
+    background-color: rgba(20, 20, 20, 0.3);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    min-height: 225vh; /* Ensures it covers full height */
 }
 
 /* Page Panel */
@@ -41,7 +66,7 @@ body {
 /* System Information Panel */
 .sysPanel {
     display: grid;
-    height: 40vh;
+    height: 20vh;
     grid-template-columns: repeat(2, 48%);
     gap: 4%;
     justify-content: center;
@@ -50,11 +75,13 @@ body {
     border-radius: 20px;
     padding: 3%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2%;
 }
 
 .sysPanel > div {
     background-color: rgba(34, 34, 34, 0.8); 
     padding: 10px;
+    height: 50%;
     border-radius: 20px;
     text-align: center;
     font-weight: bold;

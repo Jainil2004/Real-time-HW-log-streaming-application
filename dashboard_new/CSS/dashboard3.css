@@ -1,3 +1,6 @@
+/* * {
+    border: 2px solid white;
+} */
 /* Dark gradient background */
 body {
     background: linear-gradient(to bottom, #13133e, #3e3e49);
@@ -30,7 +33,7 @@ body {
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     padding: 2%;
-    min-height: 225vh; /* Ensures it covers full height */
+    min-height: 220vh; /* Ensures it covers full height */
 }
 
 /* Headers */
@@ -47,8 +50,9 @@ body {
 .sysPanel {
     display: grid;
     grid-template-columns: repeat(2, 48%);
-    gap: 2%;
-    height: 175vh;
+    /* gap: 2%; */
+    height: 170vh;
+    margin-top: 2%;
     justify-content: center;
     align-items: center;
     background-color: rgba(26, 26, 26, 0.8);
@@ -59,10 +63,12 @@ body {
 /* Ensure graphs fit properly */
 .sysPanel > div {
     background-color: rgba(34, 34, 34, 0.8);
-    /* margin-top: 3%; */
+    /* margin-top: 2%; */
     margin-left: 3%;
     margin-right: 3%;
     border-radius: 20px;
+    padding: 5%;
+    height: 70%;
     text-align: center;
     font-weight: bold;
     font-size: 1.5vw;
@@ -98,7 +104,7 @@ nav a:hover {
     align-items: center;
     margin-top: 1.5%;
     height: 30vh;
-    gap: 1%;
+    /* gap: 1%; */
     background-color: rgba(26, 26, 26, 0.8);
     border-radius: 20px;
     padding: 3%;
@@ -106,8 +112,8 @@ nav a:hover {
 }
 
 .statePanel1 {
-    width: 100%;
-    height: 75%;
+    width: 90%;
+    height: 50%;
     margin: 2%;
     background-color: rgba(34, 34, 34, 0.8);
     border-radius: 20px;

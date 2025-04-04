@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data: {
                 labels: [config.label],
                 datasets: [{
-                    label: "Value",
+                    label: config.label,
                     data: [0],
                     backgroundColor: "green",
                     borderColor: "white",
@@ -49,6 +49,44 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
     
+    // async function fetchData() {
+    //     try {
+    //         const response = await fetch(apiUrl);
+    //         const data = await response.json();
+    //         if (data.length === 0) return;
+            
+    //         let latestData = data[data.length - 1];
+    //         const cpuPackage = latestData.CPU_Package_C;
+            
+    //         // Check thermal throttling
+    //         document.getElementById("coreThermalThrottling").innerHTML =
+    //             latestData.Core_Thermal_Throttling === 1.0 ? "WARNING: CPU Core Thermal Throttling || CPU Package: " : "CPU Package: " + cpuPackage + " [°C]" + " (No Thermal or Power Limit Throttling detected)";
+
+    //         let systemState;
+    //         const usage = latestData.Core_Usage_avg_percent;
+            
+    //         if (usage < 15) {
+    //             systemState = "CPU core usage: " + usage + "% || State: System currently Idling (low or no CPU load)";
+    //         } else if (usage < 60) {
+    //             systemState = "CPU core usage: " + usage + "% || State: System active and under moderate stress";
+    //         } else if (usage < 80) {
+    //             systemState = "CPU core usage: " + usage + "% || State: System under heavy load";
+    //         } else {
+    //             systemState = "CPU core usage: " + usage + "% || State: System under extreme load";
+    //         }
+            
+    //         document.getElementById("systemState").innerHTML = systemState;
+    //         chartConfigs.forEach(config => {
+    //             let value = latestData[config.key];
+    //             charts[config.id].data.datasets[0].data = [value];
+    //             charts[config.id].data.datasets[0].backgroundColor = getBarColor(config.label, value);
+    //             charts[config.id].update();
+    //         });
+    //     } catch (error) {
+    //         console.error("Error fetching data:", error);
+    //     }
+    // }
+
     async function fetchData() {
         try {
             const response = await fetch(apiUrl);
@@ -56,11 +94,39 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.length === 0) return;
             
             let latestData = data[data.length - 1];
+            const cpuPackage = latestData.CPU_Package_C;
+            const coreThermalThrottlingDiv = document.getElementById("coreThermalThrottling");
+    
+            // Check thermal throttling and update background color
+            if (latestData.Core_Thermal_Throttling === 1.0) {
+                coreThermalThrottlingDiv.innerHTML = "⚠ WARNING: CPU Core Thermal Throttling || CPU Package: " + cpuPackage + " [°C]";
+                coreThermalThrottlingDiv.style.backgroundColor = "red";
+                coreThermalThrottlingDiv.style.color = "white";
+                coreThermalThrottlingDiv.style.padding = "10px";
+                coreThermalThrottlingDiv.style.borderRadius = "5px";
+                coreThermalThrottlingDiv.style.fontWeight = "bold";
+            } else {
+                coreThermalThrottlingDiv.innerHTML = "CPU Package: " + cpuPackage + " [°C] (No Thermal or Power Limit Throttling detected)";
+                coreThermalThrottlingDiv.style.backgroundColor = "transparent";
+                coreThermalThrottlingDiv.style.color = "white";
+                coreThermalThrottlingDiv.style.fontWeight = "normal";
+            }
+    
+            let systemState;
+            const usage = latestData.Core_Usage_avg_percent;
             
-            // Check thermal throttling
-            document.getElementById("coreThermalThrottling").innerHTML =
-                latestData.Core_Thermal_Throttling === 1.0 ? "WARNING: CPU Core Thermal Throttling" : "No Thermal or Power Limit Throttling detected";
-            
+            if (usage < 15) {
+                systemState = "🟢 CPU core usage: " + usage + "% || State: System currently Idling (low or no CPU load)";
+            } else if (usage < 60) {
+                systemState = "🟡 CPU core usage: " + usage + "% || State: System active and under moderate stress";
+            } else if (usage < 80) {
+                systemState = "🟠 CPU core usage: " + usage + "% || State: System under heavy load";
+            } else {
+                systemState = "🔴 CPU core usage: " + usage + "% || State: System under extreme load";
+            }
+    
+            document.getElementById("systemState").innerHTML = systemState;
+    
             chartConfigs.forEach(config => {
                 let value = latestData[config.key];
                 charts[config.id].data.datasets[0].data = [value];
@@ -71,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error fetching data:", error);
         }
     }
+    
     
     fetchData();
     setInterval(fetchData, 2000);

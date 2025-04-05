@@ -40,20 +40,25 @@
                 submit query
             </div>
         </div>
-        <!-- <div class="sysPanel" id="queryParameters_datetime">
+        <div class="sysPanel" id="queryParameters_datetime">
             <div id="startDate">
-                Start Date
+                <label for="startDateInput">Start Date:</label>
+                <input type="date" id="startDateInput" name="startDate">
             </div>
             <div id="endDate">
-                End Date
+                <label for="endDateInput">End Date:</label>
+                <input type="date" id="endDateInput" name="endDate">
             </div>
             <div id="startTime">
-                start time
+                <label for="startTimeInput">Start Time:</label>
+                <input type="time" id="startTimeInput" name="startTime">
             </div>
             <div id="endTime">
-                end time
+                <label for="endTimeInput">End Time:</label>
+                <input type="time" id="endTimeInput" name="endTime">
             </div>
         </div>
+
         <div class="sysPanel" id="queryParameters_anomaly">
             <div id="coreThermalThrottling">
                 Core Thermal Throttling
@@ -67,48 +72,8 @@
             <div id="highCoreActivity">
                 High Core Activity
             </div>
-        </div> -->
-        <div class="sysPanel" id="queryParameters_datetime">
-            <div class="query-row">
-                <div class="query-field">
-                    <label for="startDate">Start Date:</label>
-                    <input type="date" id="startDate">
-                </div>
-                <div class="query-field">
-                    <label for="endDate">End Date:</label>
-                    <input type="date" id="endDate">
-                </div>
-            </div>
-            <div class="query-row">
-                <div class="query-field">
-                    <label for="startTime">Start Time:</label>
-                    <input type="time" id="startTime">
-                </div>
-                <div class="query-field">
-                    <label for="endTime">End Time:</label>
-                    <input type="time" id="endTime">
-                </div>
-            </div>
         </div>
-        
-        <div class="sysPanel" id="queryParameters_anomaly">
-            <div class="query-row">
-                <div class="query-field">
-                    <label><input type="checkbox" id="throttling"> Core Thermal Throttling</label>
-                </div>
-                <div class="query-field">
-                    <label><input type="checkbox" id="tjmax"> TJMax Too Low</label>
-                </div>
-            </div>
-            <div class="query-row">
-                <div class="query-field">
-                    <label><input type="checkbox" id="highPower"> High Package Power</label>
-                </div>
-                <div class="query-field">
-                    <label><input type="checkbox" id="highActivity"> High Core Activity</label>
-                </div>
-            </div>
-        </div>
+
         <div class="sysPanel" id="queryResultPanel">
 
         </div>

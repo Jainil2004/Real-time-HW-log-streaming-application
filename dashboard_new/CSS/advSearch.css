@@ -1,22 +1,15 @@
+/* * {
+    border: 2px solid white;
+} */
 /* Dark gradient background */
 body {
-    background: linear-gradient(to bottom, #13133e, #3e3e49); /* Dark navy to dark gray */
-    color: #e0e0e0; /* Light text for readability */
+    background: linear-gradient(to bottom, #13133e, #3e3e49);
+    color: #e0e0e0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
-    justify-content: space-between;
     padding: 2%;
+    margin: 0;
 }
-
-/* Navigation Panel */
-/* .navPanel {
-    width: 20%;
-    height: 84vh;
-    background-color: rgba(20, 20, 20, 0.3);
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    padding: 2%;
-} */
 
 /* Navigation Panel - Fixed position */
 .navPanel {
@@ -32,66 +25,6 @@ body {
     overflow-y: auto; /* Allows scrolling if needed */
 }
 
-/* Page Panel - Allows full scrolling */
-.pageDesPanel {
-    width: 75%;
-    margin-left: 25%; /* Ensures it doesn’t go under the nav panel */
-    background-color: rgba(20, 20, 20, 0.3);
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    padding: 2%;
-    min-height: 225vh; /* Ensures it covers full height */
-}
-
-/* Page Panel */
-.pageDesPanel {
-    width: 75%;
-    height: 84vh;
-    background-color: rgba(20, 20, 20, 0.3); /* Warm black with translucency */
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    padding: 2%;
-}
-
-/* Headers */
-.header {
-    text-align: center;
-    font-size: 4vh;
-    color: #f0f0f0; /* Off-white */
-    background-color: transparent;
-    padding: 2% 0;
-    border-radius: 20px;
-}
-
-/* System Information Panel */
-.sysPanel {
-    width: 95%; /* Adjusted from previous values */
-    max-width: 1200px; /* Ensures it doesn't get too large on wide screens */
-    margin: 0 auto; /* Centers the panel */
-    display: grid;
-    grid-template-columns: repeat(2, 48%);
-    gap: 2%;
-    height: 175vh;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(26, 26, 26, 0.8);
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-.sysPanel > div {
-    background-color: rgba(34, 34, 34, 0.8); 
-    /* padding: 10px; */
-    height: 50%;
-    border-radius: 20px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5vw;
-    color: #e0e0e0;
-    margin-bottom: 2%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-}
-
 /* Navigation Links */
 nav a {
     display: flex;
@@ -99,7 +32,7 @@ nav a {
     align-items: center;
     width: 90%;
     height: 10%;
-    background-color: rgba(34, 34, 34, 0.8); /* Translucent */
+    background-color: rgba(34, 34, 34, 0.8);
     color: #e0e0e0;
     border-radius: 20px;
     text-decoration: none;
@@ -110,17 +43,97 @@ nav a {
 }
 
 nav a:hover {
-    background-color: rgba(51, 51, 51, 0.8); /* Translucent hover effect */
+    background-color: rgba(51, 51, 51, 0.8);
 }
 
-#queryType {
+
+/* Page Panel - Allows full scrolling */
+.pageDesPanel {
+    width: 75%;
+    margin-left: 25%; /* Ensures it doesn’t go under the nav panel */
+    background-color: rgba(20, 20, 20, 0.3);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    min-height: 220vh; /* Ensures it covers full height */
+    min-height: 110vh;
+}
+
+/* Headers */
+.header {
+    text-align: center;
+    font-size: 4vh;
+    color: #f0f0f0;
+    background-color: transparent;
+    padding: 2% 0;
+    border-radius: 20px;
+}
+
+/* .sysPanel {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    height: 20vh;
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(26, 26, 26, 0.8);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.sysPanel.active {
+    opacity: 1;
+    visibility: visible;
+} */
+
+/* System Information Panel (Default: Greyed out) */
+.sysPanel {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    height: 20vh;
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(26, 26, 26, 0.8);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0.3; /* Reduced opacity */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* When active, make it fully visible */
+.sysPanel.active {
+    opacity: 1; /* Fully visible */
+}
+
+/* Ensure graphs fit properly */
+.sysPanel > div {
+    background-color: rgba(34, 34, 34, 0.8);
+    /* margin-top: 2%; */
+    margin-left: 3%;
+    margin-right: 3%;
+    border-radius: 20px;
+    padding: 1%;
+    height: 50%;
+    /* align-items: center; */
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: #e0e0e0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* System State Panel */
+#statePanel {
     display: flex;
-    flex-direction: column; /* Stack child divs vertically */
-    align-items: center; /* Center them horizontally */
-    justify-content: flex-start; /* Align them at the top */
+    flex-direction: column;
+    align-items: center;
     margin-top: 1.5%;
-    height: 18vh;
-    gap: 1%; 
+    height: 30vh;
+    /* gap: 1%; */
     background-color: rgba(26, 26, 26, 0.8);
     border-radius: 20px;
     padding: 3%;
@@ -128,115 +141,84 @@ nav a:hover {
 }
 
 .statePanel1 {
-    width: 90%; /* Adjust width as needed */
-    height: 50%; /* Allow dynamic height */
-    background-color: rgba(34, 34, 34, 0.8);
-    border-radius: 20px;
-    text-align: center;
-    color: #e0e0e0;
-}
-
-.sysPanel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
     width: 90%;
-    max-width: 800px;
-}
-
-.query-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Ensures exactly two columns */
-    gap: 15px;
-    width: 80%; /* Expands to fit the container */
-    margin-bottom: 15px;
-}
-
-.query-field {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: #2a2a2a;
-    border-radius: 8px;
-    width: 80%;
-    height: 10vh;
-    margin: 5%;
-}
-
-.query-field label {
-    color: white;
-    margin-bottom: 5px;
-}
-
-.query-field input {
-    width: 80%;
-    padding: 5px;
-    font-size: 14px;
-    background-color: #333;
-    border: 1px solid #444;
-    color: white;
-    border-radius: 5px;
-}
-
-/* General styling for sysPanel */
-.sysPanel {
-    width: 95%; /* Adjusted from previous values */
-    max-width: 1200px; /* Ensures it doesn't get too large on wide screens */
-    margin: 0 auto; /* Centers the panel */
-    display: grid;
-    margin-bottom: 5%;
-    grid-template-columns: repeat(2, 48%);
-    gap: 2%;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(26, 26, 26, 0.8);
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Styling for elements inside sysPanel */
-.sysPanel > div {
+    height: 50%;
+    margin: 2%;
     background-color: rgba(34, 34, 34, 0.8);
-    margin-left: 3%;
-    margin-right: 3%;
     border-radius: 20px;
     text-align: center;
-    font-weight: bold;
-    font-size: 1.5vw;
     color: #e0e0e0;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Ensuring #queryType follows specified styling */
+/* Highlight the selected option */
+#queryType > div.selected {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff;
+    transition: background 0.3s, border 0.3s;
+}
+
 #queryType {
-    display: grid;
-    grid-template-columns: repeat(2, 48%);
-    gap: 2%;
-    height: 20vh;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(26, 26, 26, 0.8);
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    visibility: visible;
+    opacity: 1;
 }
 
-/* Styling for divs inside #queryType */
-#queryType > div {
+input[type="date"], input[type="time"] {
+    width: 80%;
+    padding: 5%;
+    /* margin-top: 5%; */
+    border: none;
+    border-radius: 20px;
     background-color: rgba(34, 34, 34, 0.8);
-    margin-left: 3%;
-    margin-right: 3%;
-    /* margin-top: 1%; */
-    border-radius: 20px;
-    height: 10vh;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5vw;
     color: #e0e0e0;
+    font-size: 1vw;
+    text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+input[type="date"]:focus, input[type="time"]:focus {
+    outline: none;
+    background-color: rgba(51, 51, 51, 0.9);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+#queryParameters_datetime {
+    height: auto;
+}
+
+#queryParameters_datetime > div {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the label and input */
+    justify-content: space-between; /* Add space between label and input */
+    margin-bottom: 10px; /* Add spacing between rows */
+    height: auto; /* Set a consistent height for the div */
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+#queryParameters_datetime label {
+    flex: 1; /* Allow label to take up space */
+    text-align: left; /* Align label text to the left */
+    font-size: 1.2vw; /* Adjust font size */
+    color: #e0e0e0; /* Match the text color */
+    line-height: 50px; /* Vertically center the label text */
+}
+
+#queryParameters_datetime input {
+    flex: 2; /* Allow input to take up more space */
+    max-width: 70%; /* Limit the width of the input */
+    height: 40px; /* Adjust height to fit inside the div */
+    padding: 0 10px; /* Add horizontal padding */
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(34, 34, 34, 0.8);
+    color: #e0e0e0;
+    font-size: 1.2vw;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#queryParameters_datetime input:focus {
+    outline: none;
+    background-color: rgba(51, 51, 51, 0.9);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}

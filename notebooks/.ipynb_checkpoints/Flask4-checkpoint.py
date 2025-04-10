@@ -8,9 +8,11 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+# kafka listen topic at the given bootstrap-server 
 bootstrap_server = "kafka:9092"
 topic = "hwinfo_logs_RT"
 
+# kafka configure the damn consumer to listen to messages sent by spark on the RT stream
 consumer_config = {
     "bootstrap.servers": bootstrap_server,
     "group.id": "flask-consumer-group",

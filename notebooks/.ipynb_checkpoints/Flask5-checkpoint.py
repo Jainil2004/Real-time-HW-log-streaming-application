@@ -1,9 +1,10 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from confluent_kafka import Consumer, KafkaError
 import threading
 import json
 import time
 from flask_cors import CORS
+from elasticsearch import Elasticsearch
 
 app = Flask(__name__)
 CORS(app)
@@ -51,6 +52,54 @@ def consume_kafka_messages():
 
 kafka_thread = threading.Thread(target=consume_kafka_messages, daemon=True)
 kafka_thread.start()
+
+# Elasticsearch configuration
+es = Elasticsearch(hosts=["http://elasticsearch:9200"])
+es_index = "hwinfo_test"
+
+# Mapping of div IDs to Elasticsearch query conditions
+anomaly_conditions = {
+    "coreThermalThrottling": {
+        "field": "Core_Thermal_Throttling",
+        "condition": {"term": {"Core_Thermal_Throttling": 1}}
+    },
+    "distanceToTjMAX": {
+        "field": "Core_Distance_to_TjMAX_avg_C",
+        "condition": {"range": {"Core_Distance_to_TjMAX_avg_C": {"lt": 85}}}
+    },
+    "highPackagePower": {
+        "field": "CPU_Package_Power_W",
+        "condition": {"range": {"CPU_Package_Power_W": {"gt": 90}}}
+    },
+    "highCoreActivity": {
+        "field": "Core_Usage_avg_percent",
+        "condition": {"range": {"Core_Usage_avg_percent": {"gt": 90}}}
+    }
+}
+
+@app.route("/search", methods=["POST"])
+def search_anomaly():
+    data = request.json
+    anomaly = data.get("anomaly")
+
+    if not anomaly or anomaly not in anomaly_conditions:
+        return jsonify({"error": "Invalid or missing anomaly condition"}), 400
+
+    # Get the condition for the selected anomaly
+    condition = anomaly_conditions[anomaly]["condition"]
+
+    # Construct the Elasticsearch query
+    query = {
+        "query": condition
+    }
+
+    try:
+        response = es.search(index=es_index, body=query)
+        results = [hit["_source"] for hit in response["hits"]["hits"]]
+        return jsonify(results)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 @app.route("/home")
 def home():

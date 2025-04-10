@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const apiUrl = "http://localhost:5000/dashboard";
     
     const chartConfigs = [
-        { id: "coreClocksChart", label: "Core Clocks", key: "Core_Clocks_avg_MHz", max: 5000 },
+        { id: "coreClocksChart", label: "Core Clocks", key: "Core_Clocks_avg_MHz", max: 5800 },
         { id: "ringClocksChart", label: "Ring Clocks", key: "Ring_LLC_Clock_MHz", max: 5000 },
         { id: "coreVIDChart", label: "Core VID", key: "Core_VIDs_avg_V", max: 1.5 },
         { id: "coreUsageChart", label: "Core Usage", key: "Core_Usage_avg_percent", max: 100 },

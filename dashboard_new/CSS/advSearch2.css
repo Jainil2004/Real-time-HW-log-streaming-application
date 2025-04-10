@@ -1,0 +1,153 @@
+body {
+    background: linear-gradient(to bottom, #13133e, #3e3e49);
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    padding: 2%;
+    margin: 0;
+}
+
+.navPanel {
+    width: 20%;
+    height: 89vh;
+    position: fixed;
+    top: 2%;
+    left: 1%;
+    background-color: rgba(20, 20, 20, 0.3);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    overflow-y: auto;
+}
+
+nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 10%;
+    background-color: rgba(34, 34, 34, 0.8);
+    color: #e0e0e0;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1.2vw;
+    font-weight: bold;
+    margin-top: 5%;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(51, 51, 51, 0.8);
+}
+
+.pageDesPanel {
+    width: 75%;
+    margin-left: 25%;
+    background-color: rgba(20, 20, 20, 0.3);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    min-height: 110vh;
+}
+
+.header {
+    text-align: center;
+    font-size: 4vh;
+    color: #f0f0f0;
+    background-color: transparent;
+    padding: 2% 0;
+    border-radius: 20px;
+}
+
+.sysPanel {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    height: auto;
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(26, 26, 26, 0.8);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0.3;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.sysPanel.active {
+    opacity: 1;
+}
+
+.sysPanel > div {
+    background-color: rgba(34, 34, 34, 0.8);
+    margin: 3%;
+    border-radius: 20px;
+    padding: 1%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: #e0e0e0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.sysPanel > div.selected {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff;
+    transition: background 0.3s, border 0.3s;
+}
+
+.sysPanel > div:hover {
+    background-color: rgba(51, 51, 51, 0.9);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+#queryType > div.selected {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff;
+    transition: background 0.3s, border 0.3s;
+}
+
+#queryType {
+    visibility: visible;
+    opacity: 1;
+}
+
+.result-table {
+    width: 100%; /* Make the table span the full width of the queryResultPanel */
+    border-collapse: collapse;
+    margin: auto;
+    /* margin-top: 20px; */
+}
+
+.result-table th, .result-table td {
+    /* border: 1px solid #ddd; */
+    /* padding: 8px; */
+    text-align: left;
+    word-wrap: break-word; /* Ensure long text wraps within the cell */
+}
+
+.result-table th {
+    /* background-color: #f4f4f4; */
+    font-weight: bold;
+}
+/* 
+.result-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+} */
+
+.result-table tr:hover {
+    background-color: #f1f1f1;
+}
+#queryResultPanel {
+    visibility: visible;
+    opacity: 1;
+}
+#queryResultPanel {
+    width: 90%; /* Ensure the div spans the full width of its container */
+    /* max-height: 500px; */
+    overflow-x: auto; /* Add horizontal scrolling if content overflows */
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    border: 1px solid #ddd; /* Optional: Add a border for better visibility */
+    padding: 10px; /* Add some padding for better spacing */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}

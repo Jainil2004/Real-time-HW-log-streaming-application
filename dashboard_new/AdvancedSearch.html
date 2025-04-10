@@ -1,4 +1,4 @@
-<html lang="en">
+<!-- <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,6 +76,67 @@
 
         <div class="sysPanel" id="queryResultPanel">
 
+        </div>
+    </section>
+</body>
+</html> -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/advSearch2.css">
+    <script src="JS/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Search Console</title>
+</head>
+<body>
+    <section class="navPanel">
+        <div class="header">
+            <header>
+                Navigation Panel
+            </header>
+        </div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="dashboard.html">RT dashboard</a>
+            <a href="AdvancedSearch.html">Adv Search</a>
+        </nav>
+    </section>
+    <section class="pageDesPanel">
+        <div class="header">
+            <header>
+                Logs Search and Analysis Console
+            </header>
+        </div>
+        <div class="sysPanel" id="queryType">
+            <div id="anomalySearch" class="selected">
+                Search for Anomalies
+            </div>
+            <div id="submitQuery">
+                Submit Query
+            </div>
+        </div>
+
+        <div class="sysPanel" id="queryParameters_anomaly">
+            <div id="coreThermalThrottling">
+                Core Thermal Throttling
+            </div>
+            <div id="distanceToTjMAX">
+                Low Distance to TjMAX
+            </div>
+            <div id="highPackagePower">
+                High Package Power
+            </div>
+            <div id="highCoreActivity">
+                High Core Activity
+            </div>
+        </div>
+
+        <div class="sysPanel" id="queryResultPanel">
+            <!-- <div id="tableHere">
+
+            </div> -->
         </div>
     </section>
 </body>

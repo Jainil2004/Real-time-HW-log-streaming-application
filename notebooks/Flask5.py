@@ -17,14 +17,14 @@ topic = "hwinfo_logs_RT"
 consumer_config = {
     "bootstrap.servers": bootstrap_server,
     "group.id": "flask-consumer-group",
-    "auto.offset.reset": "latest",  # Change to 'latest' if you only want new messages
+    "auto.offset.reset": "latest", 
 }
 
 consumer = Consumer(consumer_config)
 
 message_buffer = []
 MAX_BUFFER_SIZE = 10
-buffer_lock = threading.Lock()  # Lock for thread safety
+buffer_lock = threading.Lock() # ensure we can write and read from the buffer
 
 def consume_kafka_messages():
     global message_buffer

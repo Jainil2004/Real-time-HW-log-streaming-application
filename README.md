@@ -62,7 +62,7 @@ we will be deploying the project using docker in Windows 10/11
 - Once the schema is selected start logging and save it as the `test1.csv` file present inside the `notebooks` directory. 
 - next run the code inside the files sequentially mentioned below.
 
-` kakfaTwoWayStreaming.ipynb -> finalSparkKafkaESHwinfoTwoWayStreamingApplication.ipynb -> Flask5.py `
+` kakfaTwoWayStreaming.ipynb -> finalSparkKafkaESHwinfoTwoWayStreamingApplication.ipynb -> Flask6.py `
 
 - once all the three above files are running inside the jupyter container. go back to repo directory and inside `dashboard_new` folder
 - inside `dashboard_new` directory, open `index.html` and the application is ready to use

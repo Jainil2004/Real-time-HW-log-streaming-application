@@ -11,15 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
         { id: "coreTempChart", label: "Core Temperature", key: "Core_Temperatures_avg_C", max: 100 },
         { id: "distToTjMAXChart", label: "Distance to TjMAX", key: "Core_Distance_to_TjMAX_avg_C", max: 100 },
         { id: "Pl1Chart", label: "PL1 Dynamic Power", key: "PL1_Power_Limit_Dynamic_W", max: 140 },
-        { id: "PL2Chart", label: "PL2 Dynamic Power", key: "PL2_Power_Limit_Dynamic_W", max: 190 }
+        { id: "PL2Chart", label: "PL2 Dynamic Power", key: "PL2_Power_Limit_Dynamic_W", max: 190 },
+        
+        // for V2.0: added CPU and GPU fan speed charts
+        {id: "CPUFanSpeedChart", label: "CPU Fan RPM", key: "CPU_FAN_RPM", max: 5600},
+        {id: "GPUFanSpeedChart", label: "GPU Fan RPM", key: "GPU_FAN_RPM", max: 5600}
     ];
     
     function getBarColor(label, value) {
         if (label.includes("Temp")) return value > 90 ? "red" : value > 70 ? "orange" : "green";
-        if (label.includes("Usage")) return value > 80 ? "red" : value > 50 ? "yellow" : "green";
+        if (label.includes("Usage")) return value > 80 ? "red" : value > 50 ? "orange" : "green";
         if (label.includes("PL1_Power")) return value > 150 ? "red" : value > 100 ? "orange" : "green";
         if (label.includes("PL2_Power")) return value > 150 ? "red" : value > 100 ? "orange" : "green";
         if (label.includes("TjMAX")) return value < 20 ? "red" : value > 40 ? "green" : "orange";
+        if (label.includes("Fan")) return value < 3700 ? "green" : value < 4400 ? "orange" : "red" // added label for CPU and GPU fans {V2.X}
         return "green";
     }
     

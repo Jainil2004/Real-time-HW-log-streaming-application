@@ -1,6 +1,13 @@
 # Real-time-HW-log-streaming-application
 The Real-Time Hardware Monitoring and Analysis system is my current best flagship project. It harnesses the power of the Big Data ecosystem, including Apache Spark, Apache Kafka, and Elasticsearch. This project is a comprehensive integration of Big Data tools, backend, frontend development, and advanced analytics, reflecting my growth in coding, system design, and performance bench-marking.
 
+## Recent Updates
+### V2.0
+introducing V2.0 of the Real-Time hardware Monitoring and Analysis system, I have improved upon the RT dashboard by adding CPU and GPU fan profiles. the dashboard now features two more graphs that represent CPU and GPU fan speeds which are dynamic and align well with rest of the components of the RT dashboard.
+
+- Added CPU and GPU fan speed features in data pipeline 
+- Added two more graphs in RT dashboard for real time view of system fans
+
 ## project Overview
 The system streams hardware logs using Hwinfo containing crucial sensor data to analyze and predict performance bottlenecks such as CPU core thermal throttling and power limit throttling. This real-time insights allow system maintainers and people like me who like to mess with the power and voltage sliders in XTU understand system behavior in real time while also providing a way to check historical data.
 
@@ -69,9 +76,3 @@ we will be deploying the project using docker in Windows 10/11
 
 ### General Queries
 if the dashboard doesnt work right away. restart the `finalSparkKafkaESHwinfoTwoWayStreamingApplication.ipynb' and wait a few seconds.
-
-## V2.0
-introducing V2.0 of the Real-Time hardware Monitoring and Analysis system, I have improved upon the RT dashboard by adding CPU and GPU fan profiles. the dashboard now features two more graphs that represent CPU and GPU fan speeds which are dynamic and align well with rest of the components of the RT dashboard.
-
-- Added CPU and GPU fan speed features in data pipeline 
-- Added two more graphs in RT dashboard for real time view of system fans

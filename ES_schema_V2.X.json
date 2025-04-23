@@ -1,0 +1,59 @@
+{
+    "hwinfo_test_v2.x": {
+        "mappings": {
+            "properties": {
+                "CPU_FAN_RPM": {
+                    "type": "integer"
+                },
+                "CPU_Package_C": {
+                    "type": "integer"
+                },
+                "CPU_Package_Power_W": {
+                    "type": "double"
+                },
+                "Core_Clocks_avg_MHz": {
+                    "type": "integer"
+                },
+                "Core_Distance_to_TjMAX_avg_C": {
+                    "type": "double"
+                },
+                "Core_Temperatures_avg_C": {
+                    "type": "double"
+                },
+                "Core_Thermal_Throttling": {
+                    "type": "double"
+                },
+                "Core_Usage_avg_percent": {
+                    "type": "double"
+                },
+                "Core_VIDs_avg_V": {
+                    "type": "double"
+                },
+                "Date": {
+                    "type": "keyword"
+                },
+                "GPU_FAN_RPM": {
+                    "type": "integer"
+                },
+                "PL1_Power_Limit_Dynamic_W": {
+                    "type": "double"
+                },
+                "PL1_Power_Limit_Static_W": {
+                    "type": "double"
+                },
+                "PL2_Power_Limit_Dynamic_W": {
+                    "type": "double"
+                },
+                "PL2_Power_Limit_Static_W": {
+                    "type": "double"
+                },
+                "Ring_LLC_Clock_MHz": {
+                    "type": "double"
+                },
+                "Time": {
+                    "type": "keyword"
+                }
+            }
+        }
+    }
+}

@@ -57,7 +57,7 @@ we will be deploying the project using docker in Windows 10/11
 | PL2_Power_Limit_Static_W         | 
 | PL2_Power_Limit_Dynamic_W        |
 
-**DO NOTE: the model expects the above defined schema! ensure schema matches**
+**DO NOTE: the model expects the above defined schema at minimum! you can add more data features upon your liking**
 
 - Once the schema is selected start logging and save it as the `test1.csv` file present inside the `notebooks` directory. 
 - next run the code inside the files sequentially mentioned below.
@@ -69,3 +69,9 @@ we will be deploying the project using docker in Windows 10/11
 
 ### General Queries
 if the dashboard doesnt work right away. restart the `finalSparkKafkaESHwinfoTwoWayStreamingApplication.ipynb' and wait a few seconds.
+
+## V2.0
+introducing V2.0 of the Real-Time hardware Monitoring and Analysis system, I have improved upon the RT dashboard by adding CPU and GPU fan profiles. the dashboard now features two more graphs that represent CPU and GPU fan speeds which are dynamic and align well with rest of the components of the RT dashboard.
+
+- Added CPU and GPU fan speed features in data pipeline 
+- Added two more graphs in RT dashboard for real time view of system fans

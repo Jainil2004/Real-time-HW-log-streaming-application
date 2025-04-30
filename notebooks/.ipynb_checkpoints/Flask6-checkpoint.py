@@ -50,9 +50,9 @@ def consume_kafka_messages():
                 message_buffer.append(data)
                 if len(message_buffer) > MAX_BUFFER_SIZE:
                     message_buffer.pop(0)
-                print(f"[+] Kafka message received and added to buffer. Buffer size: {len(message_buffer)}")
+                # print(f"[+] Kafka message received and added to buffer. Buffer size: {len(message_buffer)}")
         except Exception as e:
-            print(f"[!] Error decoding Kafka message: {e}")
+            # print(f"[!] Error decoding Kafka message: {e}")
 
 
 kafka_thread = threading.Thread(target=consume_kafka_messages, daemon=True)

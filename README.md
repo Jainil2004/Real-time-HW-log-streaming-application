@@ -1,6 +1,12 @@
 # Real-time-HW-log-streaming-application
 The Real-Time Hardware Monitoring and Analysis system is my current best flagship project. It harnesses the power of the Big Data ecosystem, including Apache Spark, Apache Kafka, and Elasticsearch. This project is a comprehensive integration of Big Data tools, backend, frontend development, and advanced analytics, reflecting my growth in coding, system design, and performance bench-marking.
 
+## Copyright
+This project is registered by the Indian Copyright Office (Application no. SW-20497/2025-CO)
+Copyright Certificate: `https://drive.google.com/file/d/1MNZZkh___c2RAUWvY71-xSIH9H-AbAzv/view?usp=sharing`
+
+![Copyright Certificate](https://drive.google.com/uc?export=view&id=16Q_taIQxvnmkhnI5aTCE9kkAW-5pM99X)
+
 ## Recent Updates
 ### V2.0
 introducing V2.0 of the Real-Time hardware Monitoring and Analysis system, I have improved upon the RT dashboard by adding CPU and GPU fan profiles. the dashboard now features two more graphs that represent CPU and GPU fan speeds which are dynamic and align well with rest of the components of the RT dashboard.
